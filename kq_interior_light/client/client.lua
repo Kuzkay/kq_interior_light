@@ -25,7 +25,8 @@ Citizen.CreateThread(function()
                     
                     if pressedAt + Config.keybinds.toggle.holdDuration < GetGameTimer() then
                         pressedAt = nil
-                        TriggerServerEvent('kq_interior_light:server:set', veh, not GetVehicleInteriorlight(veh))
+                        local netId = NetworkGetNetworkIdFromEntity(veh)
+                        TriggerServerEvent('kq_interior_light:server:set', netId, not IsVehicleInteriorLightOn(veh))
                         
                         Citizen.CreateThread(function()
                             local disableUntil = GetGameTimer() + 100
