@@ -4,8 +4,16 @@ lua54 'yes'
 
 author 'KuzQuality | Kuzkay'
 description 'Interior lights toggling by KuzQuality.com'
-version '1.0.0'
+version '1.1.0'
 
+
+--
+-- Server
+--
+
+server_scripts {
+    'server/server.lua',
+}
 
 --
 -- Client
@@ -19,4 +27,5 @@ client_scripts {
 escrow_ignore {
     'config.lua',
     'client/client.lua',
+    'server/server.lua',
 }

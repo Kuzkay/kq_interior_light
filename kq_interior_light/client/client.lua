@@ -24,8 +24,8 @@ Citizen.CreateThread(function()
                     end
                     
                     if pressedAt + Config.keybinds.toggle.holdDuration < GetGameTimer() then
-                        SetVehicleInteriorlight(veh, not IsVehicleInteriorLightOn(veh))
                         pressedAt = nil
+                        TriggerServerEvent('kq_interior_light:server:set', veh, not GetVehicleInteriorlight(veh))
                         
                         Citizen.CreateThread(function()
                             local disableUntil = GetGameTimer() + 100
@@ -43,4 +43,13 @@ Citizen.CreateThread(function()
         
         Citizen.Wait(sleep)
     end
+end)
+
+AddStateBagChangeHandler('kq_interior_light', nil, function(bagName, key, value)
+    local entity = GetEntityFromStateBagName(bagName)
+    if entity == 0 then
+        return
+    end
+    
+    SetVehicleInteriorlight(entity, value)
 end)
