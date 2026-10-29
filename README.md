@@ -7,3 +7,5 @@ This keybind can be changed in the config file. Hold duration can also be change
 
 ### Installation
 Simply drop the `kq_interior_light` folder into your `resources` folder and add it to your `server.cfg` file
+
+https://kuzquality.com/
